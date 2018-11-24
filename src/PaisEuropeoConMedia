@@ -1,0 +1,103 @@
+public class PaisEuropeo {
+    private final int DINERO_ASCENSO_A = 100_000;
+    private final int DINERO_DESCENSO_C = 0;
+    private static int fondoComun = 0;
+    private final String nombre;
+    private int poblacion;
+    private final String dominioInternet;
+    private int fondoPropio;
+    private char categoria;
+
+    PaisEuropeo(String nombre, int poblacion, String dominioInternet) {
+        this.nombre = nombre;
+        this.poblacion = poblacion;
+        this.dominioInternet = dominioInternet;
+        this.fondoPropio = 0;
+        this.categoria = 'B';
+    }
+
+    PaisEuropeo(String nombre, int poblacion) {
+        this(nombre, poblacion, (nombre.substring(0, 2)).toLowerCase());
+
+    }
+
+    public static int getFondoComun() {
+        return fondoComun;
+    }
+
+    private static void setFondoComun(int fondoComun) {
+        PaisEuropeo.fondoComun = fondoComun;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public int getPoblacion() {
+        return poblacion;
+    }
+
+    public void setPoblacion(int poblacion) {
+        this.poblacion = poblacion;
+    }
+
+    public String getDominioInternet() {
+        return dominioInternet;
+    }
+
+    public int getFondoPropio() {
+        return fondoPropio;
+    }
+
+    public char getCategoria() {
+        return categoria;
+    }
+
+    private void setFondoPropio(int fondoPropio) {
+        this.fondoPropio = fondoPropio;
+    }
+
+    public void aportar(int dineroAportado) {
+        if (dineroAportado < 0) {
+            dineroAportado = 0;
+        }
+        fondoComun += dineroAportado;
+        fondoPropio += dineroAportado;
+        setCategoria(fondoPropio);
+
+    }
+
+    public void retirar(int dineroRetirado) {
+        if (dineroRetirado < 0) {
+            dineroRetirado = 0;
+        }
+        fondoPropio -= dineroRetirado;
+        fondoComun -= dineroRetirado;
+        setCategoria(fondoPropio);
+    }
+
+    private void setCategoria(int fondoPropio) {
+        if (fondoPropio > DINERO_ASCENSO_A) {
+            this.categoria = 'A';
+        } else if (fondoPropio < DINERO_ASCENSO_A && fondoPropio > DINERO_DESCENSO_C) {
+            this.categoria = 'B';
+        } else {
+            this.categoria = 'C';
+        }
+
+    }
+    //----------------------------------Ejercicio 2------------------------------------------------
+    private final int NUMERO_DE_PAISES_PARA_HACER_LA_MEDIA=2;
+    public double MediaPoblacionDeDosPaises(String primerPais, String segundoPais) {
+        int PoblacionPrimerPais=ObtenerPoblacion(primerPais);
+        int PoblacionSegundoPais=ObtenerPoblacion(segundoPais);
+        int sumaDePoblaciones=PoblacionPrimerPais+PoblacionSegundoPais;
+        double MediaDePoblaciones=sumaDePoblaciones/(double)NUMERO_DE_PAISES_PARA_HACER_LA_MEDIA;
+        return MediaDePoblaciones;
+    }
+
+    private int ObtenerPoblacion(String primerPais) {
+        return getPoblacion();
+    }
+
+}
