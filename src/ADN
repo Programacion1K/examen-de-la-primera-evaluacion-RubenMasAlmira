@@ -1,0 +1,24 @@
+public class ADN {
+    public static String devuelveComplementario(String adn){
+        adn.toUpperCase();
+        char caracterActual;
+        String complementario="";
+        for(int i=0;i<adn.length();i++) {
+            caracterActual=adn.charAt(i);
+            if(caracterActual=='A'){
+                complementario+='T';
+
+            }else if(caracterActual=='T'){
+                complementario+='A';
+
+            }else if(caracterActual=='C'){
+                complementario+='G';
+
+            }else if(caracterActual=='G'){
+                complementario+='C';
+
+            }
+        }
+        return complementario;
+    }
+}
