@@ -1,0 +1,22 @@
+public class BoletoPrimitiva {
+    private static final int FILAS=9;
+    private static final int COLUMNAS=4;
+    public static void main(String[] args) {
+        String salida="";
+        for(int i=0;i<=FILAS;i++){
+            for(int j=1;j<=COLUMNAS;j++){
+                if(i==0 ){
+                    salida+="\t"+j+i;
+                    continue;
+                }
+                if(j==4){
+                    salida+=i+"\t"+j+i;
+                    continue;
+                }
+                salida+=i+"\t"+j;
+            }
+            salida+="\n";
+        }
+        System.out.println(salida);
+    }
+}
