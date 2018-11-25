@@ -1,0 +1,19 @@
+public class Enmascara {
+    private static final char CARATER_PARA_ENMASCARAR='#';
+    public static String enmascara(String cadena){
+        if("".equals(cadena)){
+            return cadena;
+        }
+        if(cadena.length()==1){
+            return cadena;
+        }
+
+        String cadenaParaEnmascarar=cadena.substring(0,cadena.length()-4);
+        String enmascaramiento="";
+        for(int i=0;i<=cadenaParaEnmascarar.length();i++){
+            enmascaramiento+=CARATER_PARA_ENMASCARAR;
+        }
+        String cadenaEnmascarada=cadena.replace(cadenaParaEnmascarar,enmascaramiento);
+        return cadenaEnmascarada;
+    }
+}
