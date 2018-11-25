@@ -1,0 +1,12 @@
+private final int NUMERO_DE_PAISES_PARA_HACER_LA_MEDIA=2;
+public double MediaPoblacionDeDosPaises(String primerPais, String segundoPais) {
+        int PoblacionPrimerPais=ObtenerPoblacion(primerPais);
+        int PoblacionSegundoPais=ObtenerPoblacion(segundoPais);
+        int sumaDePoblaciones=PoblacionPrimerPais+PoblacionSegundoPais;
+        double MediaDePoblaciones=sumaDePoblaciones/(double)NUMERO_DE_PAISES_PARA_HACER_LA_MEDIA;
+        return MediaDePoblaciones;
+        }
+
+private int ObtenerPoblacion(String primerPais) {
+        return getPoblacion();
+        }
